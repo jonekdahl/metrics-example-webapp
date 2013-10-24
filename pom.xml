@@ -11,10 +11,35 @@
     <dependency>
         <groupId>com.codahale.metrics</groupId>
         <artifactId>metrics-servlets</artifactId>
-        <version>3.0.1</version>
+        <version>${metrics.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>com.codahale.metrics</groupId>
+        <artifactId>metrics-servlet</artifactId>
+        <version>${metrics.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>${servlet.version}</version>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
+  <properties>
+    <jetty8.version>8.1.9.v20130131</jetty8.version>
+    <servlet.version>3.0.1</servlet.version>
+    <metrics.version>3.0.1</metrics.version>
+  </properties>
+
+  <!-- Build settings -->
   <build>
     <finalName>metrics-example</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>${jetty8.version}</version>
+      </plugin>
+    </plugins>
   </build>
 </project>
